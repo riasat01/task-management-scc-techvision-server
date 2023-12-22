@@ -52,6 +52,22 @@ const updateATask = async (req, res) => {
     }
 }
 
+const updateStatus = async (req, res) => {
+    try {
+        const id = req.params?.id;
+        const { status } = req.body;
+        const update = {
+            $set: {
+                status: status
+            }
+        }
+        const result = await Task?.updateOne({ _id: id }, update);
+        res.send(result);
+    } catch (error) {
+        res.status(400).send({ error: error?.message })
+    }
+}
+
 const deleteATask = async (req, res) => {
     try {
         const id = req.params?.id;
@@ -62,4 +78,4 @@ const deleteATask = async (req, res) => {
     }
 }
 
-module?.exports = { getATask, getTasks, postATask, updateATask, deleteATask };
+module.exports = { getATask, getTasks, postATask, updateATask, updateStatus, deleteATask };

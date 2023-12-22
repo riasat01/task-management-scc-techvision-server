@@ -25,6 +25,11 @@ const taskSchema = new Schema({
     "email": {
         type: String,
         required: true
+    },
+    "status": {
+        type: String,
+        required: true,
+        enum: ['To-Do', 'Ongoing', 'completed']
     }
 })
 
