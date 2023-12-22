@@ -29,7 +29,7 @@ const taskSchema = new Schema({
     "status": {
         type: String,
         required: true,
-        enum: ['To-Do', 'Ongoing', 'completed']
+        enum: ['To-Do', 'Ongoing', 'Completed']
     }
 })
 
